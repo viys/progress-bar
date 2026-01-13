@@ -83,23 +83,26 @@ function New-ProgressBar {
 }
 
 # ===== Demo =====
-# $progress = New-ProgressBar -Total 1000 -Activity "Flash 写入" -Id 1 -ShowETA
-# $total = 1000
-# for ($i = 1; $i -le $total; $i++) {
-#     $progress.Step(1)
-#     Start-Sleep -Milliseconds 1
-# }
+<#
+$progress = New-ProgressBar -Total 1000 -Activity "Flash 写入" -Id 1 -ShowETA
+$total = 1000
+for ($i = 1; $i -le $total; $i++) {
+    $progress.Step(1)
+    Start-Sleep -Milliseconds 1
+}
 
-# $progress.Step(128)   # 128
-# Start-Sleep -Milliseconds 200
-# $progress.Step(128)   # 256
-# Start-Sleep -Milliseconds 200
-# $progress.Set(512)    # 直接跳到 512
-# Start-Sleep -Milliseconds 200
-# $progress.Step(100)   # 612
-# Start-Sleep -Milliseconds 200
-# $progress.Complete()
+$progress.Step(128)   # 128
+Start-Sleep -Milliseconds 200
+$progress.Step(128)   # 256
+Start-Sleep -Milliseconds 200
+$progress.Set(512)    # 直接跳到 512
+Start-Sleep -Milliseconds 200
+$progress.Step(100)   # 612
+Start-Sleep -Milliseconds 200
+$progress.Complete()
+#>
 
+<#
 function Get-AddressFromLine {
     param(
         [string]$Line
@@ -111,8 +114,6 @@ function Get-AddressFromLine {
 
     return $null
 }
-
-# 假设你已知总写入大小（字节）：
 
 $currentAddr = $null
 $exe  = "Cmd_download_tool.exe"
@@ -128,3 +129,4 @@ $progress = New-ProgressBar -Total $totalBytes -Activity "Writing" -ShowETA
     $progress.Set($currentAddr)
 }
 $progress.Complete()
+#>
